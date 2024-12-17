@@ -8,12 +8,12 @@ namespace OOPS_Concepts
 {
     internal class BankAccount
     {
-        private double Balance;
-        public string AccountHolder { get; set; }
-        BankAccount(double balance, string accountHolder)
+        private double balance;
+        public string accountHolder { get; set; }
+        public BankAccount(double balance, string accountHolder)
         {
-            this.Balance = balance;
-            this.AccountHolder = accountHolder;
+            this.balance = balance;
+            this.accountHolder = accountHolder;
         }
         public void Deposite(double amount)
         {
@@ -22,21 +22,12 @@ namespace OOPS_Concepts
                 Console.WriteLine("The amount must be positive");
                 return;
             }
-            Balance = Balance + amount;
+            balance = balance + amount;
             Console.WriteLine($"{amount} rupees deposited successfully");
         }
-        public class Program
+        public double GetBalance()
         {
-            /*public static void Main(string[] args)
-            {
-                BankAccount account = new BankAccount(5000, "Pooja");
-
-                Console.WriteLine($"Account Holder: {account.AccountHolder}, Balance: {account.Balance:C}");
-
-                // Deposit money (indirectly updates balance)
-                account.Deposite(200);
-            }*/
-
+            return balance;
         }
     }
 }
